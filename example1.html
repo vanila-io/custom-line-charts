@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Basic Line Chart - Chart.js</title>
+
+  <style>
+    html, body{
+      background: #f1f1f1;
+      padding-top: 50px;
+    }
+    .wrapper{
+      width:60%;
+      display:block;
+      overflow:hidden;
+      margin:0 auto;
+      padding: 60px 50px;
+      background:#fff;
+      border-radius:4px;
+    }
+    canvas{
+      background:#fff;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrapper">
+    <canvas id="myChart"></canvas>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+  <script>
+    var ctx = document.getElementById('myChart').getContext("2d");
+
+    var myChart = new Chart(ctx, {
+      type: 'line',
+      data: {
+          labels: ["JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL"],
+          datasets: [{
+              label: "Data",
+              borderColor: "#80b6f4",
+              pointBorderColor: "#80b6f4",
+              pointBackgroundColor: "#80b6f4",
+              pointHoverBackgroundColor: "#80b6f4",
+              pointHoverBorderColor: "#80b6f4",
+              pointBorderWidth: 10,
+              pointHoverRadius: 10,
+              pointHoverBorderWidth: 1,
+              pointRadius: 3,
+              fill: false,
+              borderWidth: 4,
+              data: [100, 120, 150, 170, 180, 170, 160]
+          }]
+      },
+      options: {
+          legend: {
+              position: "bottom"
+          },
+          scales: {
+              yAxes: [{
+                  ticks: {
+                      fontColor: "rgba(0,0,0,0.5)",
+                      fontStyle: "bold",
+                      beginAtZero: true, // If true, scale will include 0 if it is not already included.
+                      maxTicksLimit: 5,  // Maximum number of ticks and gridlines to show.
+                      padding: 20        // Padding between the tick label and the axis.
+                  },
+                  gridLines: {
+                      drawTicks: false, // If true, draw lines beside the ticks in the axis area beside the chart.
+                      display: false
+                  }
+              }],
+              xAxes: [{
+                  gridLines: {
+                      zeroLineColor: "transparent" // Stroke color of the grid line for the first index (index 0).
+                  },
+                  ticks: {
+                      padding: 20,
+                      fontColor: "rgba(0,0,0,0.5)",
+                      fontStyle: "bold"
+                  }
+              }]
+          }
+      }
+    });
+  </script>
+</body>
+</html>
