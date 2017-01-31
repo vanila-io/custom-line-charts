@@ -38,10 +38,6 @@
     gradientStroke.addColorStop(0, "#80b6f4");
     gradientStroke.addColorStop(1, "#f49080");
 
-    var gradientFill = ctx.createLinearGradient(500, 0, 100, 0);
-    gradientFill.addColorStop(0, "rgba(128, 182, 244, 0.6)");
-    gradientFill.addColorStop(1, "rgba(244, 144, 128, 0.6)");
-
     var myChart = new Chart(ctx, {
       type: 'line',
       data: {
@@ -57,8 +53,8 @@
               pointHoverRadius: 10,
               pointHoverBorderWidth: 1,
               pointRadius: 3,
-              fill: true,                                   // If true, fill the area under the line
-              backgroundColor: gradientFill,                // Specify the background color to the chart area
+              fill: true,                     // If true, fill the area under the line
+              backgroundColor: gradientFill,  // Specify the background color to the chart area
               borderWidth: 4,
               data: [100, 120, 150, 170, 180, 170, 160]
           }]
